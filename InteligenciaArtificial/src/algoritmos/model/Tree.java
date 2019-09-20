@@ -68,5 +68,29 @@ public class Tree {
             walk(data, list);
         }
     }
+    
+    /**
+     * Return the root Node of the tree.
+     * @return the root element.
+     */
+    public List<Node> convertToList()
+    {
+       List<Node> list = new ArrayList<Node>();
+       caminhar(rootElement, list);
+       return list;
+    }
+    
+    private void caminhar(Node element, List<Node> list)
+    {
+       if(element.filhoUnico != null)
+       {
+          list.add(element);
+          caminhar(element.filhoUnico, list);
+       }
+       else
+       {
+          list.add(element);
+       }
+    }
 
 }

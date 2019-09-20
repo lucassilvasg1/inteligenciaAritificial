@@ -1,7 +1,5 @@
 package algoritmos;
 
-
-import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.HashSet;
 import java.util.List;
@@ -78,7 +76,7 @@ public class BuscaGulosaA extends BuscaAbstrata
          double v1 = heuristica.calculate(o1.getProblema(), experado) + o1.getNivel();
          double v2 = heuristica.calculate(o2.getProblema(), experado) + o2.getNivel();
 
-         return Double.compare(v2, v1);
+         return Double.compare(v1, v2);
       }
 
    }

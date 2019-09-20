@@ -70,8 +70,6 @@ public abstract class BuscaAbstrata implements Busca
       if (found == tree.getRootElement()) return;
       Node parent = found.getPai();
       if (parent == null) return;
-      found.setNivel(nivel);
-      nivel = nivel + 1;
       parent.inserirFilho(found);
       construirArvoreSolucao(parent);
    }

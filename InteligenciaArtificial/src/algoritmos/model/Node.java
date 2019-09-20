@@ -11,6 +11,8 @@ public class Node
    public Tabuleiro problema;
 
    public List<Node> filho;
+   
+   public Node filhoUnico;
 
    private int nivel;
 
@@ -52,11 +54,7 @@ public class Node
 
    public void inserirFilho(Node child)
    {
-      if (filho == null)
-      {
-         filho = new ArrayList<Node>();
-      }
-      filho.add(child);
+      filhoUnico = child;
       child.pai = this;
    }
 

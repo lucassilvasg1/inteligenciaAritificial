@@ -41,6 +41,7 @@ public class BuscaEmLargura extends BuscaAbstrata
             List<Node> filhos = abrir(atual, false);
             for (Node o : filhos)
             {
+               o.setNivel(o.getPai().getNivel() + 1);
                fila.add(o);
             }
          }

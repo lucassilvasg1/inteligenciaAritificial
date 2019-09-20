@@ -86,14 +86,14 @@ public class Main
       if (busca.executar())
       {
          Tree tree = busca.getTree();
-         List<Node> lista = tree.toList();
+         List<Node> lista = tree.convertToList();
 
          for (Node node : lista)
          {
             System.out.println(node.problema);
          }
          
-         System.out.println(tree.getRootElement().getChildren().get(tree.getRootElement().getChildren().size() - 1).getNivel());  
+         System.out.println("NÍVEL DA ÁRVORE: " + lista.get(lista.size() - 1).getNivel());  
          
       }
    }
