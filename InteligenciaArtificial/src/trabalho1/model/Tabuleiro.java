@@ -264,7 +264,7 @@ public class Tabuleiro implements Cloneable
    }
 
    // FAZER NO TOO STRING PRA NÃO TER QUE FICAR PRINTANDO VÁRIOS FILHOS (PQ SÃO MUITOS) VER NO CTRL + SHIFT + I
-   // LUCAS SILVA 15/09
+   // Pedro Henrique 15/09
    @Override
    public String toString()
    {

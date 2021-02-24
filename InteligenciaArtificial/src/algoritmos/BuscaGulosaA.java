@@ -12,6 +12,8 @@ import algoritmos.model.Node;
 public class BuscaGulosaA extends BuscaAbstrata
 {
 
+   private Long numeroVisitados = 0L;
+
    private Heuristica heuristica;
 
    private PriorityQueue<Node> fila;
@@ -30,6 +32,7 @@ public class BuscaGulosaA extends BuscaAbstrata
    {
 
       super.executar();
+      this.numeroVisitados = 0L;
 
       getTree().getRootElement().setNivel(0);
       fila.add(getTree().getRootElement());
@@ -37,11 +40,13 @@ public class BuscaGulosaA extends BuscaAbstrata
       while (!fila.isEmpty())
       {
          Node atual = fila.remove();
+         this.numeroVisitados++;
 
          if (isSolution(atual))
          {
             System.out.println("SOLUÇÃO ENCONTRADA.....");
             construirArvoreSolucao(atual);
+            System.out.println("NÚMERO DE NÓS VISITADOS A*: " + this.numeroVisitados);
             return true;
          }
 
@@ -63,7 +68,7 @@ public class BuscaGulosaA extends BuscaAbstrata
    }
 
    // A HEURISTICA USADA É PELO POSICIONAMENTO 
-   // CASO O '1' JÁ ESTEJA NA POSIÇÃO CORRETA, O NÓ VAI PRO COMEÇO DA FILA, QUANTO MAIS ELEMENTOS NA POSIÇÃO CORRETA,
+   // CASO O '1' JÁ ESTEJA NA POSIÇÃO CORRETA, O NÓ VAI PRO COMEÇO DA FILA, QUANTO MAIS ELEMENTOS NA POSIÇÃO INCORRETA,
    // MAIS PRIORIDADE ELE VAI TER NA FILA, OU SEJA, ELE VAI FICAR NAS PRIMEIRAS POSIÇÕES
    // A HEURISTICA FOI ESCOLHIDA POR SER MAIS FÁCIL DE VISUALIZAR NA CLASSE PRIORITY QUEUE (MAS QUALQUER OUTRA HEURISTICA FUNCIONARIA)
    private class HeuristaComparator implements Comparator<Node>

@@ -17,7 +17,7 @@ public class TabuleiroHeuristicaA implements Heuristica
 
       for (int i = 0; i < cells1.size(); i++)
       {
-         if (cells1.get(i).getValue() == cells2.get(i).getValue())
+         if (cells1.get(i).getValue() != cells2.get(i).getValue())
          {
             c++;
          }

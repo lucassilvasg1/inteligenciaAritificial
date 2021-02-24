@@ -11,7 +11,7 @@ import algoritmos.model.Node;
 
 public class BuscaEmLargura extends BuscaAbstrata
 {
-
+   private Long numeroVisitados = 0L;
    private Queue<Node> fila = new LinkedList<Node>();
 
    private Set<Node> visitado = new HashSet<Node>();
@@ -21,17 +21,19 @@ public class BuscaEmLargura extends BuscaAbstrata
    {
 
       super.executar();
+      this.numeroVisitados = 0L;
 
       fila.add(getTree().getRootElement());
 
       while (!fila.isEmpty())
       {
          Node atual = fila.remove();
-
+         this.numeroVisitados++;
          if (isSolution(atual))
          {
             System.out.println("SOLUÇÃO ENCONTRADA.....");
             construirArvoreSolucao(atual);
+            System.out.println("NÚMERO DE NÓS VISITADOS BUSCA EM LARGURA: " + this.numeroVisitados);
             return true;
          }
 
